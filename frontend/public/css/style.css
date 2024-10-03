@@ -1,0 +1,81 @@
+:root {
+    --primary-color: #49d32a;
+    --section-bg-color: #ffffff;
+    --section-bg-color: rgb(250 250 250);
+}
+body { background-color: var(--section-bg-color); }
+h1 { color: var(--primary-color); }
+h5 { font-weight: 400; }
+h5 a { font-weight: 400; }
+a {text-decoration: none; color: #000;}
+.section {
+    padding: 20px;
+    /* border: 1px solid #ccc; */
+    margin-bottom: 15px;
+    background-color: var(--section-bg-color)!important;
+}
+.left-column {
+    background-color: #f8f9fa; /* Light background for the left column */
+    height: 100vh;
+    padding: 20px;
+    text-align: center;
+    background-color: var(--section-bg-color);
+}
+.right-column {
+    height: 100vh;
+
+}
+.top-section {
+    min-height: auto;
+    background-color: #e9ecef; /* Light gray for top section */
+}
+.middle-section {
+    height: auto;
+    background-color: #dee2e6; /* Slightly darker gray for middle section */
+}
+.bottom-section {
+    height: auto;
+    background-color: #ced4da; /* Darker gray for bottom section */
+}
+.profile-img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+.social-links a {
+    display: block;
+    margin: 5px 0;
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+}
+.social-links a:hover {
+    color: #007bff; /* Change color on hover */
+}
+#techstack { gap: 1rem;}
+#techstack span { border-width: 3px!important; border-color: var(--primary-color)!important; }
+.box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+.box img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px;
+}
+.title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.description {
+    font-size: 1rem;
+    color: #6c757d;
+}
+
+
+@media (max-width: 992px) {
+    .left-column {
+        display: none;
+    }
+}
