@@ -21,25 +21,25 @@
         </div>
       </form>
   
-      <button class="badge badge-primary mr-2"
+      <button class="btn btn-primary mr-2"
         v-if="currentBlog.published"
         @click="updatePublished(false)"
       >
         UnPublish
       </button>
-      <button v-else class="badge badge-primary mr-2"
+      <button v-else class="btn btn-primary mr-2"
         @click="updatePublished(true)"
       >
         Publish
       </button>
   
-      <button class="badge badge-danger mr-2"
+      <button class="btn btn-danger mx-2"
         @click="deleteBlog"
       >
         Delete
       </button>
   
-      <button type="submit" class="badge badge-success"
+      <button type="submit" class="btn btn-success mr-2"
         @click="updateBlog"
       >
         Update
@@ -78,13 +78,13 @@
   
       updatePublished(status) {
         var data = {
-          id: this.currentBlog.id,
+          _id: this.currentBlog._id,
           title: this.currentBlog.title,
           description: this.currentBlog.description,
           published: status
         };
   
-        BlogDataService.update(this.currentBlog.id, data)
+        BlogDataService.update(this.currentBlog._id, data)
           .then(response => {
             console.log(response.data);
             this.currentBlog.published = status;
@@ -96,7 +96,8 @@
       },
   
       updateBlog() {
-        BlogDataService.update(this.currentBlog.id, this.currentBlog)
+        console.log('cureent blog id:', this.currentBlog._id)
+        BlogDataService.update(this.currentBlog._id, this.currentBlog)
           .then(response => {
             console.log(response.data);
             this.message = 'The blog was updated successfully!';
@@ -107,7 +108,7 @@
       },
   
       deleteBlog() {
-        BlogDataService.delete(this.currentBlog.id)
+        BlogDataService.delete(this.currentBlog._id)
           .then(response => {
             console.log(response.data);
             this.$router.push({ name: "blogs" });
