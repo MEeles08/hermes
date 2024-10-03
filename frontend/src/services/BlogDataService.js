@@ -1,32 +1,61 @@
 import http from "../http-common";
 
 class BlogDataService {
-  getAll() {
-    return http.get("/blogs");
+  constructor() {
+    this.token = null;
   }
 
-  get(id) {
-    return http.get(`/blogs/${id}`);
+  // Get JWT token
+  async getToken() {
+    if (!this.token) {
+      const response = await http.get('/generate-token');
+      this.token = response.data.token;
+    }
+    return this.token;
   }
 
-  create(data) {
-    return http.post("/blogs", data);
+  // Add token to request headers
+  async addTokenToHeaders(headers = {}) {
+    const token = await this.getToken();
+    return {
+      ...headers,
+      Authorization: `Bearer ${token}`,
+    };
   }
 
-  update(id, data) {
-    return http.put(`/blogs/${id}`, data);
+  async getAll() {
+    const headers = await this.addTokenToHeaders();
+    return http.get("/blogs", { headers });
   }
 
-  delete(id) {
-    return http.delete(`/blogs/${id}`);
+  async get(id) {
+    const headers = await this.addTokenToHeaders();
+    return http.get(`/blogs/${id}`, { headers });
   }
 
-  deleteAll() {
-    return http.delete(`/blogs`);
+  async create(data) {
+    const headers = await this.addTokenToHeaders();
+    return http.post("/blogs", data, { headers });
   }
 
-  findByTitle(title) {
-    return http.get(`/blogs?title=${title}`);
+  async update(id, data) {
+    const headers = await this.addTokenToHeaders();
+    return http.put(`/blogs/${id}`, data, { headers });
+  }
+
+  async delete(id) {
+    const headers = await this.addTokenToHeaders();
+    return http.delete(`/blogs/${id}`, { headers });
+  }
+
+  async deleteAll() {
+    const headers = await this.addTokenToHeaders();
+    return http.delete(`/blogs`, { headers });
+  }
+
+  async findByTitle(title) {
+    const headers = await this.addTokenToHeaders();
+    return http.get(`/blogs?title=${title}`, { headers });
   }
 }
 
