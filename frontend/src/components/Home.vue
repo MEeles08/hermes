@@ -20,7 +20,7 @@
                 <div class="top-section section">
                     <h1>Matthew Eeles</h1>
                     <h3>Web Developer</h3>
-                    <h5>Currently working @FirstSightMedia</h5>
+                    <h5>Currently working <a href="https://firstsight.media">@FirstSightMedia</a></h5>
                     <p>Connect with me for frontend & backend development.</p>
 
                     <p><b>Current Dev Stack</b></p>
@@ -71,6 +71,13 @@
 </template>
 
 <style>
+:root {
+    --primary-color: #49d32a;
+}
+
+h1 { color: var(--primary-color); }
+h5 { font-weight: 400;}
+h5 a {text-decoration: none; color: #000; font-weight: 400;}
 .section {
     padding: 20px;
     /* border: 1px solid #ccc; */
@@ -112,7 +119,7 @@
     color: #007bff; /* Change color on hover */
 }
 #techstack { gap: 1rem;}
-#techstack span { border-width: 3px!important; border-color: #75b36e!important; }
+#techstack span { border-width: 3px!important; border-color: var(--primary-color)!important; }
 .box {
     border: 1px solid #ccc;
     padding: 20px;
