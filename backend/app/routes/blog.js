@@ -2,6 +2,8 @@ module.exports = app => {
     const blogs = require("../controllers/blog.js");
   
     var router = require("express").Router();
+
+    const { verifyToken } = require("../middleware/auth.js")
   
     // Create a new Blog
     router.post("/", blogs.create);
@@ -24,5 +26,6 @@ module.exports = app => {
     // Delete all Blogs
     router.delete("/", blogs.deleteAll);
   
+    app.use(verifyToken);
     app.use('/api/blogs', router);
   };
