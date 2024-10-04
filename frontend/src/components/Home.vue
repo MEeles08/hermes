@@ -10,7 +10,26 @@
                     <h3 class="mt-0 pt-0">Web Developer</h3>
                     <h5>Currently working <a href="https://firstsight.media">@FirstSightMedia</a></h5>
                     <p>Connect with me for more frontend & backend development.</p>
+
+                    <div class="d-flex justify-content-start gap-md-4" id="socialIcons">
+                        <a href="https://instagram.com/yourusername" target="_blank" class="text-dark">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-dark">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>      
+                        <a href="https://github.com/MEeles08" target="_blank" class="text-dark">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>                                          
+                    </div>
+
+                    <!-- Buttons for Blog and Contact -->
+                    <div class="d-flex gap-2 mt-4" id="hero-btns">
+                        <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link>
+                        <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="btn btn-dark text-white">Contact</a>
+                    </div>
                 </div>
+
                 <div class="middle-section section">
                     <p><b>Current Dev Stack</b></p>
                     <div class="d-flex flex-row flex-wrap" id="techstack">
@@ -22,6 +41,7 @@
                         <span class="p-2 border rounded">MongoDB</span>
                     </div>                    
                 </div>
+
                 <div class="middle-section section">
                     <p><b>Who am I?</b></p>
                     <p>I'm a 23-year-old web developer based in Oxfordshire, UK. Monday to Friday you'll find me either on 
@@ -31,21 +51,7 @@
                 </div>
                 <div class="bottom-section section">
                     <p><b>Latest Projects</b></p>
-                    <div v-for="(project, index) in projects" :key="index" to>
-                        <router-link :to="project.url">
-                            <div class="box d-flex align-items-start my-2 shadow my-1">
-                                <!-- Image on the left -->
-                                <img :src="project.img" :alt="project.title">
-                                <!-- Text content: title and description -->
-                                <div>
-                                    <div class="title">{{ project.title }}</div>
-                                    <div class="description">
-                                        {{ project.description }}
-                                    </div>
-                                </div>
-                            </div>   
-                        </router-link>
-                    </div>
+                    <Card v-for="project in projects" :key="project.id" :data="project" />
                 </div>
             </div>
         </div>
@@ -54,23 +60,25 @@
 
 <script>
 import Navbar from './partials/Navbar.vue';
+import Card from './elements/Card.vue';
 export default {
     name: "Home",
     components: {
         Navbar,
+        Card
     },
     data() {
       return {
         projects: [
             {
-                title: "Project One",
-                description: "A description about the project will go here. Makie it short but snappy, ensuring I list some key words about the project.",
+                title: "Chatty App",
+                description: "A little socket.io app. Enter a your room of your choice and start chatting  with fellow Chatty App users with the user of websockets.",
                 img: "https://picsum.photos/100",
-                url: "/blogs",
+                url: "/",
             },
             {
-                title: "Project Two",
-                description: "A description about the project will go here. Makie it short but snappy, ensuring I list some key words about the project.",
+                title: "This website!",
+                description: "Welcome to my new site! After two years in the industry, I thought the time was right to build myself my very own platform. ",
                 img: "https://picsum.photos/100",
                 url: "/blogs",
             }
