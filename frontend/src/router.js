@@ -22,6 +22,10 @@ const routes = [
     name: "add",
     component: () => import("./components/AddBlog"),
   },
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/"
+  }
 ];
 
 const router = createRouter({
