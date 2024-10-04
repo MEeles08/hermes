@@ -3,7 +3,8 @@
     <div class="col-md-12 col-lg-2 left-column d-flex flex-column align-items-center" id="nav-socials">
         <!-- Profile Image -->
         <router-link to="/">
-            <img src="../../../public/images/headshot.jpg" alt="Profile Image" class="rounded-circle profile-img">
+            <img src="https://picsum.photos/150" alt="Profile Image" class="rounded-circle profile-img">
+            <!-- <img src="../../../public/images/headshot.jpg" alt="Profile Image" class="rounded-circle profile-img"> -->
         </router-link>
         
         <!-- Social Links -->
