@@ -12,10 +12,10 @@
                     <p>Connect with me for more frontend & backend development.</p>
 
                     <div class="d-flex justify-content-start gap-md-4" id="socialIcons">
-                        <a href="https://instagram.com/yourusername" target="_blank" class="text-dark">
+                        <a href="https://www.instagram.com/thecyclingdev/" target="_blank" class="text-dark">
                             <i class="fab fa-instagram fa-2x"></i>
                         </a>
-                        <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-dark">
+                        <a href="https://www.linkedin.com/in/matthew-eeles/" target="_blank" class="text-dark">
                             <i class="fab fa-linkedin fa-2x"></i>
                         </a>      
                         <a href="https://github.com/MEeles08" target="_blank" class="text-dark">
