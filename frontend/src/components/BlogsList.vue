@@ -28,7 +28,7 @@
       </div>
       <div class="col-md-6">
         <h4>Blogs List</h4>
-        <ul class="list-group">
+        <!-- <ul class="list-group">
           <li class="list-group-item"
             :class="{ active: index == currentIndex }"
             v-for="(blog, index) in blogs"
@@ -37,13 +37,23 @@
           >
             {{ blog.title }}
           </li>
-        </ul>
+        </ul> -->
+
+        <BlogCard v-for="(blog, index) in blogs" 
+          :key="index" 
+          :currentIndex="this.currentIndex" 
+          :index="index" 
+          :data="blog" 
+          @setActiveBlog="setActiveBlog"
+        />
 
         <button class="m-3 btn btn-sm btn-danger" @click="removeAllBlogs">
           Remove All
         </button>
 
-        <Card v-for="blog in blogs" :key="blog.id" :data="blog" />
+        
+
+
       </div>
       <div class="col-md-6">
         <div v-if="currentBlog">
@@ -79,14 +89,14 @@
   
   <script>
   import Navbar from "./partials/Navbar.vue";
-  import Card from "./elements/Card.vue";
+  import BlogCard from "./elements/BlogCard.vue";
   import BlogDataService from "../services/BlogDataService";
   
   export default {
     name: "blogs-list",
     components: {
       Navbar,
-      Card,
+      BlogCard,
     },
     data() {
       return {
@@ -141,7 +151,7 @@
           .catch(e => {
             console.log(e);
           });
-      }
+      },
     },
     mounted() {
       this.retrieveBlogs();
