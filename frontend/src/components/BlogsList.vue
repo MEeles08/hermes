@@ -91,6 +91,7 @@
   import Navbar from "./partials/Navbar.vue";
   import BlogCard from "./elements/BlogCard.vue";
   import BlogDataService from "../services/BlogDataService";
+  import SanityDataService from "../services/SanityDataService";
   
   export default {
     name: "blogs-list",
@@ -101,12 +102,26 @@
     data() {
       return {
         blogs: [],
+        posts: [],
         currentBlog: null,
+        currentPost: null,
         currentIndex: -1,
         title: ""
       };
     },
     methods: {
+
+      retrievePosts() {
+        SanityDataService.getAll()
+          .then(response => {
+            this.posts = response.data;
+            this.currentPost = this.posts[0];
+          })
+          .catch(e => {
+            console.log(e)
+          })
+      },
+
       retrieveBlogs() {
         BlogDataService.getAll()
           .then(response => {
@@ -154,7 +169,8 @@
       },
     },
     mounted() {
-      this.retrieveBlogs();
+      // this.retrieveBlogs();
+      this.retrievePosts();
     }
   };
   </script>
