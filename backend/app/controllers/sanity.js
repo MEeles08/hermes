@@ -3,7 +3,7 @@ const { Sanity } = require('../utils/sanity');
 // Retrieve all Posts from Sanity.io.
 exports.findAll = async (req, res) => {
     try {
-        const query = '*[_type == "post"]';
+        const query = '*[_type == "post"] | order(_createdAt desc)';
         const posts = await Sanity.client.fetch(query);
         res.json(posts);
     } 
