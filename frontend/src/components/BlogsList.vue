@@ -81,7 +81,7 @@
 
       </div>
       <div class="col-md-6">
-        <div v-if="currentPost">
+        <!-- <div v-if="currentPost">
           <h4>Blog</h4>
           <div>
             <label><strong>Title:</strong></label> {{ currentPost.title }}
@@ -107,8 +107,8 @@
         <div v-else>
           <br />
           <p>Please click on a Blog...</p>
-        </div>
-        <!-- <div v-if="currentBlog">
+        </div> -->
+        <div v-if="currentBlog">
           <h4>Blog</h4>
           <div>
             <label><strong>Title:</strong></label> {{ currentBlog.title }}
@@ -125,7 +125,7 @@
         <div v-else>
           <br />
           <p>Please click on a Blog...</p>
-        </div> -->
+        </div>
       </div>
     </div>
                  
@@ -138,7 +138,7 @@
   </template>
   
   <script>
-  import { PortableText } from '@portabletext/vue';
+  // import { PortableText } from '@portabletext/vue';
   import Navbar from "./partials/Navbar.vue";
   import BlogCard from "./elements/BlogCard.vue";
   import SanityCard from "./elements/SanityCard.vue";
@@ -151,7 +151,7 @@
       Navbar,
       BlogCard,
       SanityCard,
-      PortableText,
+      // PortableText,
     },
     data() {
       return {
@@ -229,8 +229,8 @@
       },
     },
     mounted() {
-      // this.retrieveBlogs();
-      this.retrievePosts();
+      this.retrieveBlogs();
+      // this.retrievePosts();
 
     }
   };

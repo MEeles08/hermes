@@ -4,7 +4,7 @@
         @click="$emit('setActiveBlog', data, index)"
         role="button">
         <!-- Image on the left -->
-        <img :src="data.img" :alt="data.title">
+        <img :src="data.imageUrl" :alt="data.title">
         <!-- Text content: title and description -->
         <div>
             <div class="title">{{ data.title }}</div>
