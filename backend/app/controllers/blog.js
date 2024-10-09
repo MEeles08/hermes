@@ -1,19 +1,41 @@
+const multer = require('multer');
+const Cloudinary = require('../utils/cloudinary');
 const db = require("../models");
 const Blog = db.blogs;
 
+// Multer config
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads/');
+  },
+  filename: (req, file, cb) => {
+    cb(null, `${Date.now()}_${file.originalname}`);
+  },
+});
+const upload = multer({ storage });
+
+
 // Create and Save a new Blog
-exports.create = (req, res) => {
+exports.create = async (req, res) => {
+  let imageUrl = 'No image received';
   // Validate request
   if (!req.body.title) {
     res.status(400).send({ message: "Content can not be empty!" });
     return;
   }
 
+  // Check for image file in request
+  if (req.file) {
+    const result = await Cloudinary.uploader.upload(req.file.path);
+    imageUrl = result.secure_url; // Get the URL from the result
+  }
+  
   // Create a Blog
   const blog = new Blog({
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false,
+    imageUrl: imageUrl
   });
 
   // Save Blog in the database

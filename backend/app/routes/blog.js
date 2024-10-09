@@ -1,10 +1,12 @@
 module.exports = app => {
+    const multer = require('multer');
     const blogs = require("../controllers/blog.js");
     var router = require("express").Router();
-    const { verifyToken } = require("../middleware/auth.js")
+    const { verifyToken } = require("../middleware/auth.js");
+    const upload = multer({ dest: 'uploads/' });
   
     // Create a new Blog
-    router.post("/", verifyToken, blogs.create);
+    router.post("/", verifyToken, upload.single('image'), blogs.create);
   
     // Retrieve all Blogs
     router.get("/", verifyToken, blogs.findAll);
