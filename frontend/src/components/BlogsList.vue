@@ -119,6 +119,10 @@
           <div>
             <label><strong>Status:</strong></label> {{ currentBlog.published ? "Published" : "Pending" }}
           </div>
+          <div v-if="currentBlog.imageUrl">
+            <label><strong>Image:</strong></label>
+            <img :src="currentBlog.imageUrl" :alt="currentBlog.title" width="200px" height="auto">
+          </div>
   
           <router-link :to="'/blogs/' + currentBlog._id" class="btn btn-primary">Edit</router-link>
         </div>

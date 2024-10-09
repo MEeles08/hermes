@@ -14,7 +14,14 @@
             v-model="currentBlog.description"
           />
         </div>
-  
+
+        <div v-if="currentBlog.imageUrl" class="form-group">
+          <label for="image">Image Url</label>
+          <input type="text" class="form-control" id="image"
+            v-model="currentBlog.imageUrl"
+          />
+        </div>
+
         <div class="form-group">
           <label><strong>Status:</strong></label>
           {{ currentBlog.published ? "Published" : "Pending" }}
