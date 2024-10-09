@@ -37,6 +37,7 @@
                         <span class="p-2 border rounded">CSS</span>
                         <span class="p-2 border rounded">JavaScript</span>
                         <span class="p-2 border rounded">NodeJS</span>
+                        <span class="p-2 border rounded">PHP</span>
                         <span class="p-2 border rounded">Vue</span>
                         <span class="p-2 border rounded">MongoDB</span>
                     </div>                    
@@ -74,7 +75,7 @@ export default {
                 title: "Chatty App",
                 description: "A little socket.io app. Enter a your room of your choice and start chatting  with fellow Chatty App users with the user of websockets.",
                 img: "https://picsum.photos/100",
-                url: "/",
+                url: "https://chatty-app-jea9.onrender.com/",
             },
             {
                 title: "This website!",
