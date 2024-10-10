@@ -33,6 +33,7 @@ exports.create = async (req, res) => {
   // Create a Blog
   const blog = new Blog({
     title: req.body.title,
+    artisect: req.body.artisect,
     description: req.body.description,
     published: req.body.published ? req.body.published : false,
     imageUrl: imageUrl
