@@ -25,7 +25,7 @@ class BlogDataService {
 
   async getAll() {
     const headers = await this.addTokenToHeaders();
-    return http.get("/blogs", { headers });
+    return http.get("/blogs/published", { headers });
   }
 
   async get(id) {
