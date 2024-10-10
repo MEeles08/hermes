@@ -109,21 +109,12 @@
           <p>Please click on a Blog...</p>
         </div> -->
         <div v-if="currentBlog">
-          <h4>Blog</h4>
-          <div>
-            <label><strong>Title:</strong></label> {{ currentBlog.title }}
+          <img :src="currentBlog.imageUrl" class="img-fluid" alt="Blog Image">
+          <h2 class="mt-3">{{ currentBlog.title }}</h2>
+          <p>{{ currentBlog.description }}</p>
+          <div class="text-muted my-2">
+            <small>Last updated: {{  dateTransform(currentBlog.updatedAt) }}</small>
           </div>
-          <div>
-            <label><strong>Description:</strong></label> {{ currentBlog.description }}
-          </div>
-          <div>
-            <label><strong>Status:</strong></label> {{ currentBlog.published ? "Published" : "Pending" }}
-          </div>
-          <div v-if="currentBlog.imageUrl">
-            <label><strong>Image:</strong></label>
-            <img :src="currentBlog.imageUrl" :alt="currentBlog.title" width="200px" height="auto">
-          </div>
-  
           <router-link :to="'/blogs/' + currentBlog._id" class="btn btn-primary">Edit</router-link>
         </div>
         <div v-else>
@@ -230,6 +221,20 @@
           .catch(e => {
             console.log(e);
           });
+      },
+
+      getOrdinal(n) {
+        const suffixes = ["th", "st", "nd", "rd"];
+        const value = n % 100;
+        return suffixes[(value - 20) % 10] || suffixes[value] || suffixes[0];
+      },
+
+      dateTransform(originalDate) {
+        const date = new Date(originalDate);
+        const day = date.getDate();
+        const month = date.toLocaleString('default', { month: 'long' });
+        const year = date.getFullYear();
+        return `${day}${this.getOrdinal(day)} of ${month}, ${year}`;
       },
     },
     mounted() {
