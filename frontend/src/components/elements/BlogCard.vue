@@ -8,8 +8,9 @@
         <!-- Text content: title and description -->
         <div>
             <div class="title">{{ data.title }}</div>
-            <div class="description">
-                {{ data.description }}
+            <div v-if="data.artisect" class="description">
+                {{ data.artisect }}
+                
             </div>
         </div>
     </div>   
