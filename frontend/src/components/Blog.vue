@@ -9,6 +9,12 @@
           />
         </div>
         <div class="form-group">
+          <label for="artisect">Artisect</label>
+          <input type="text" class="form-control" id="artisect"
+            v-model="currentBlog.artisect"
+          />
+        </div>
+        <div class="form-group">
           <label for="description">Description</label>
           <input type="text" class="form-control" id="description"
             v-model="currentBlog.description"

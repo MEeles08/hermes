@@ -10,7 +10,6 @@
             <div class="title">{{ data.title }}</div>
             <div v-if="data.artisect" class="description">
                 {{ data.artisect }}
-                
             </div>
         </div>
     </div>   
