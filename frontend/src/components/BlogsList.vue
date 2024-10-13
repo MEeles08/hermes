@@ -67,13 +67,13 @@
           @setActiveBlog="setActiveBlog"
         />
 
-        <SanityCard v-for="(blog, index) in posts" 
+        <!-- <SanityCard v-for="(blog, index) in posts" 
           :key="index" 
           :currentIndex="this.currentIndex" 
           :index="index" 
           :data="blog" 
           @setActivePost="setActivePost"
-        />
+        /> -->
 
         <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllBlogs">
           Remove All
@@ -82,26 +82,9 @@
       </div>
       <div class="col-md-6">
         <!-- <div v-if="currentPost">
-          <h4>Blog</h4>
           <div>
-            <label><strong>Title:</strong></label> {{ currentPost.title }}
-          </div>
-          <div>
-            <label><strong>Description:</strong></label> {{ currentPost.description }}
-            <PortableText 
-              :value="currentPost.body" 
-            />
-          </div> 
-
-          <div>
-            <div v-for="block in currentPost.body" :key="block._key">
-              <div v-if="block._type === 'block'">
-                <p :class="block.style">{{ block.children[0].text }}</p>
-              </div>
-              <div v-else-if="block._type === 'image'">
-                <img :src="block.asset.url" :alt="block.alt || 'Image'" class="img-fluid" />
-              </div>
-            </div>
+            <h4>{{ currentPost.title }}</h4>
+            <div v-html="renderBody(currentPost.body)" />
           </div>
         </div>
         <div v-else>
@@ -136,7 +119,7 @@
   // import { PortableText } from '@portabletext/vue';
   import Navbar from "./partials/Navbar.vue";
   import BlogCard from "./elements/BlogCard.vue";
-  import SanityCard from "./elements/SanityCard.vue";
+  // import SanityCard from "./elements/SanityCard.vue";
   import BlogDataService from "../services/BlogDataService";
   import SanityDataService from "../services/SanityDataService";
   
@@ -145,7 +128,7 @@
     components: {
       Navbar,
       BlogCard,
-      SanityCard,
+      // SanityCard,
       // PortableText,
     },
     data() {
@@ -236,6 +219,42 @@
         const year = date.getFullYear();
         return `${day}${this.getOrdinal(day)} of ${month}, ${year}`;
       },
+
+      renderBody(body) {
+        return body.map(block => {
+          switch (block._type) {
+            case 'image': {
+              return `<img src="${block.asset.url}" alt="${block.alt || ''}" />`;
+            }
+            case 'block': {
+              const textContent = block.children.map(child => child.text).join('');
+              return `<p>${textContent}</p>`;
+            }
+            case 'list': {
+              return `<ul>${block.listItems.map(item => `<li>${item.children.map(child => child.text).join('')}</li>`).join('')}</ul>`;
+            }
+            case 'h1': {
+              return `<h1>${block.children.map(child => child.text).join('')}</h1>`;
+            }
+            case 'h2': {
+              return `<h2>${block.children.map(child => child.text).join('')}</h2>`;
+            }
+            case 'h3': {
+              return `<h3>${block.children.map(child => child.text).join('')}</h3>`;
+            }
+            case 'blockquote': {
+              return `<blockquote>${block.children.map(child => child.text).join('')}</blockquote>`;
+            }
+            case 'code': {
+              return `<pre><code>${block.code}</code></pre>`;
+            }
+            default: {
+              return '';
+            }
+          }
+        }).join('');
+      },
+
     },
     mounted() {
       this.retrieveBlogs();
