@@ -12,7 +12,7 @@
             <a href="https://www.instagram.com/thecyclingdev/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
             <a href="https://www.linkedin.com/in/matthew-eeles/" target="_blank"><i class="bi bi-linkedin"></i> LinkedIn</a>
             <a href="https://github.com/MEeles08" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-            <!-- <router-link to="/blogs" class="">Blog</router-link> -->
+            <router-link to="/blogs" class="">Blog</router-link>
             <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="">Contact</a>
         </div>
     </div>
