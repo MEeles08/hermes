@@ -1,5 +1,5 @@
 <template>
-    <a :href="data.url">
+    <a :href="data.url" target="_blank">
         <div class="box d-flex align-items-start my-2 shadow my-1">
             <!-- Image on the left -->
             <img :src="data.img" :alt="data.title">

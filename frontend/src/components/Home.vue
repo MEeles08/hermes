@@ -25,7 +25,7 @@
 
                     <!-- Buttons for Blog and Contact -->
                     <div class="d-flex gap-2 mt-4" id="hero-btns">
-                        <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link>
+                        <!-- <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link> -->
                         <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="btn btn-dark text-white">Contact</a>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                         <span class="p-2 border rounded">JavaScript</span>
                         <span class="p-2 border rounded">NodeJS</span>
                         <span class="p-2 border rounded">PHP</span>
-                        <span class="p-2 border rounded">Vue</span>
+                        <span class="p-2 border rounded">Vue.js</span>
                         <span class="p-2 border rounded">MongoDB</span>
                     </div>                    
                 </div>
@@ -74,14 +74,15 @@ export default {
             {
                 title: "Chatty App",
                 description: "A little socket.io app. Enter a your room of your choice and start chatting  with fellow Chatty App users with the user of websockets.",
-                img: "https://picsum.photos/100",
-                url: "https://chatty-app-jea9.onrender.com/",
+                img: "./images/chatty_app.png",
+                url: "https://chatty-app-jea9.onrender.com",
             },
             {
                 title: "This website!",
-                description: "Welcome to my new site! After two years in the industry, I thought the time was right to build myself my very own platform. ",
-                img: "https://picsum.photos/100",
-                url: "/blogs",
+                description: `Welcome to my new site! After two years in the industry, I thought the time was right to build myself my very own platform. 
+                I hope to add a blog section section with Sanity IO as a way of showing my latest work alongside tips & tricks. `,
+                img: "./images/headshot.jpg",
+                url: "/",
             }
         ]
       };
