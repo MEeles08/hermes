@@ -7,7 +7,8 @@ const PORT = process.env.PORT || 8080;
 require('dotenv').config();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "https://hermes-frontend.onrender.com/"
+  // origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
