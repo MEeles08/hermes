@@ -1,125 +1,68 @@
 <template>
 
-<div class="container-fluid mt-4">
-  <div class="row">
-    <Navbar />
+  <div class="container-fluid mt-4">
+    <div class="row">
+      <Navbar />
 
-    <!-- Right Column (80%) with 3 sections -->
-    <div class="col-md-10 right-column d-flex flex-column">
-      <div class="top-section section">
-        <h1 class="mb-0 pb-0">Matthew Eeles</h1>
-        <h3 class="mt-0 pt-0">Web Developer</h3>
-        <h5>Currently working <a href="https://firstsight.media">@FirstSightMedia</a></h5>
-        <p>Connect with me for more frontend & backend development.</p>
+      <!-- Right Column (80%) with 3 sections -->
+      <div class="col-md-10 right-column d-flex flex-column">
+        <div class="top-section section">
+          <h1 class="mb-0 pb-0">Matthew Eeles</h1>
+          <h3 class="mt-0 pt-0">Web Developer</h3>
+          <h5>Currently working <a href="https://firstsight.media">@FirstSightMedia</a></h5>
+          <p>Connect with me for more frontend & backend development.</p>
 
-        <div class="d-flex justify-content-start gap-md-4" id="socialIcons">
-            <a href="https://www.instagram.com/thecyclingdev/" target="_blank" class="text-dark">
-                <i class="fab fa-instagram fa-2x"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/matthew-eeles/" target="_blank" class="text-dark">
-                <i class="fab fa-linkedin fa-2x"></i>
-            </a>      
-            <a href="https://github.com/MEeles08" target="_blank" class="text-dark">
-                <i class="fab fa-github fa-2x"></i>
-            </a>                                          
-        </div>
+          <div class="d-flex justify-content-start gap-md-4" id="socialIcons">
+              <a href="https://www.instagram.com/thecyclingdev/" target="_blank" class="text-dark">
+                  <i class="fab fa-instagram fa-2x"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/matthew-eeles/" target="_blank" class="text-dark">
+                  <i class="fab fa-linkedin fa-2x"></i>
+              </a>      
+              <a href="https://github.com/MEeles08" target="_blank" class="text-dark">
+                  <i class="fab fa-github fa-2x"></i>
+              </a>                                          
+          </div>
 
-        <!-- Buttons for Blog and Contact -->
-        <div class="d-flex gap-2 mt-4" id="hero-btns">
-            <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link>
-            <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="btn btn-dark text-white">Contact</a>
-        </div>
-      </div>
-      <div class="middle-section section">
-        <!-- Blog insert here  -->
-        <div class="row">
-      <!-- <div class="col-md-8">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Search by title"
-            v-model="title"/>
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"
-              @click="searchTitle"
-            >
-              Search
-            </button>
+          <!-- Buttons for Blog and Contact -->
+          <div class="d-flex gap-2 mt-4" id="hero-btns">
+              <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link>
+              <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="btn btn-dark text-white">Contact</a>
           </div>
         </div>
-      </div> -->
-      <div class="col-md-6 scrollable-container">
-        <h4>Recent Blogs</h4>
-        <!-- <ul class="list-group">
-          <li class="list-group-item"
-            :class="{ active: index == currentIndex }"
-            v-for="(blog, index) in blogs"
-            :key="index"
-            @click="setActiveBlog(blog, index)"
-          >
-            {{ blog.title }}
-          </li>
-        </ul> -->
-
-        <BlogCard v-for="(blog, index) in blogs" 
-          :key="index" 
-          :currentIndex="this.currentIndex" 
-          :index="index" 
-          :data="blog" 
-          @setActiveBlog="setActiveBlog"
-        />
-
-        <!-- <SanityCard v-for="(blog, index) in posts" 
-          :key="index" 
-          :currentIndex="this.currentIndex" 
-          :index="index" 
-          :data="blog" 
-          @setActivePost="setActivePost"
-        /> -->
-
-        <!-- <button class="m-3 btn btn-sm btn-danger" @click="removeAllBlogs">
-          Remove All
-        </button> -->
-
-      </div>
-      <div class="col-md-6">
-        <!-- <div v-if="currentPost">
-          <div>
-            <h4>{{ currentPost.title }}</h4>
-            <div v-html="renderBody(currentPost.body)" />
+        <div class="middle-section section">
+          <!-- Blog insert here  -->
+          <div class="row">
+            <div class="col-md-12 scrollable-container">
+              <h4>Recent Blogs</h4>
+              <BlogCard v-for="(blog, index) in blogs" 
+                :key="index" 
+                :currentIndex="this.currentIndex" 
+                :index="index" 
+                :data="blog" 
+                @setActiveBlog="setActiveBlog"
+              />
+              <SanityCard v-for="(blog, index) in posts" 
+                :key="index" 
+                :currentIndex="this.currentIndex" 
+                :index="index" 
+                :data="blog" 
+                @setActivePost="setActivePost"
+              />
+            </div>
           </div>
         </div>
-        <div v-else>
-          <br />
-          <p>Please click on a Blog...</p>
-        </div> -->
-        <div v-if="currentBlog">
-          <img :src="currentBlog.imageUrl" class="img-fluid" alt="Blog Image">
-          <h2 class="mt-3">{{ currentBlog.title }}</h2>
-          <p>{{ currentBlog.description }}</p>
-          <div class="text-muted my-2">
-            <small>Last updated: {{  dateTransform(currentBlog.updatedAt) }}</small>
-          </div>
-          <router-link :to="'/blogs/' + currentBlog._id" class="btn btn-primary">Edit</router-link>
-        </div>
-        <div v-else>
-          <br />
-          <p>Please click on a Blog...</p>
-        </div>
       </div>
-    </div>
-                 
-      </div>
-
     </div>
   </div>
-</div>
 
-  </template>
+</template>
   
   <script>
   // import { PortableText } from '@portabletext/vue';
   import Navbar from "./partials/Navbar.vue";
   import BlogCard from "./elements/BlogCard.vue";
-  // import SanityCard from "./elements/SanityCard.vue";
+  import SanityCard from "./elements/SanityCard.vue";
   import BlogDataService from "../services/BlogDataService";
   import SanityDataService from "../services/SanityDataService";
   
@@ -128,7 +71,7 @@
     components: {
       Navbar,
       BlogCard,
-      // SanityCard,
+      SanityCard,
       // PortableText,
     },
     data() {
@@ -224,7 +167,7 @@
         return body.map(block => {
           switch (block._type) {
             case 'image': {
-              return `<img src="${block.asset.url}" alt="${block.alt || ''}" />`;
+              return `<img src="${block.asset.url}" alt="${block.alt || ''}" width='250px' height='auto' />`;
             }
             case 'block': {
               const textContent = block.children.map(child => child.text).join('');
@@ -257,8 +200,8 @@
 
     },
     mounted() {
-      this.retrieveBlogs();
-      // this.retrievePosts();
+      // this.retrieveBlogs();
+      this.retrievePosts();
 
     }
   };

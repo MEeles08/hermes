@@ -25,7 +25,7 @@
 
                     <!-- Buttons for Blog and Contact -->
                     <div class="d-flex gap-2 mt-4" id="hero-btns">
-                        <!-- <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link> -->
+                        <router-link to="/blogs" class="btn btn-dark text-white">Blog</router-link>
                         <a href="mailto:eelesmatthew01@gmail.com?subject=Website Inquiry" class="btn btn-dark text-white">Contact</a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="middle-section section">
                     <p><b>Who am I?</b></p>
                     <p>I'm a 23-year-old web developer based in Oxfordshire, UK. Monday to Friday you'll find me either on 
-                        site working as a live streaming technician or in the office working away to provide seamless web expirences. 
+                        site working as a live streaming technician or in the office working away to provide seamless web experiences. 
                         Outside of work, I enjoy cycling and watching the football. 
                     </p>
                 </div>
@@ -75,7 +75,7 @@ export default {
                 title: "Chatty App",
                 description: "A little socket.io app. Enter a your room of your choice and start chatting  with fellow Chatty App users with the user of websockets.",
                 img: "./images/chatty_app.png",
-                url: "https://chatty-app-jea9.onrender.com",
+                url: "https://chatty-app.mattheweeles.co.uk/",
             },
             {
                 title: "This website!",

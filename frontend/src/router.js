@@ -18,6 +18,11 @@ const routes = [
     component: () => import("./components/Blog"),
   },
   {
+    path: "/blogs/sanity/:id",
+    name: "blog-details",
+    component: () => import("./components/SanityBlog"),
+  },
+  {
     path: "/add",
     name: "add",
     component: () => import("./components/AddBlog"),
