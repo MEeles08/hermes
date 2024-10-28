@@ -13,6 +13,9 @@
           <div class="row">
             <div class="col-md-12 scrollable-container">
               <h4>Recent Blogs</h4>
+              <div v-if="!posts.length">
+                <p>Blogs loading...</p>
+              </div>
               <BlogCard v-for="(blog, index) in blogs" 
                 :key="index" 
                 :currentIndex="this.currentIndex" 
