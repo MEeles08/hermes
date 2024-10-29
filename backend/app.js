@@ -7,8 +7,8 @@ const PORT = process.env.PORT || 8080;
 require('dotenv').config();
 
 var corsOptions = {
-  // origin: "https://mattheweeles.co.uk"
-  origin: "http://localhost:8081"
+  origin: "https://mattheweeles.co.uk"
+  //origin: "http://localhost:8081"
 };
 
 app.use(cors(corsOptions));
