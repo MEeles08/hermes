@@ -82,7 +82,9 @@ a {text-decoration: none; color: #000;}
     #socialIcons, #hero-btns { display: flex!important; }
     .middle-section { min-height: 170px; }
 }
-
 @media (max-width: 425px) {
-    .middle-section { min-height: 230px; }
+    .middle-section { min-height: 236px; }
+}
+@media (max-width: 375px) {
+    .middle-section { min-height: 246px; }
 }
