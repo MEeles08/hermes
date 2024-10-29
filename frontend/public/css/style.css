@@ -80,5 +80,9 @@ a {text-decoration: none; color: #000;}
 @media (max-width: 992px) {
     #nav-socials { display: none!important; }
     #socialIcons, #hero-btns { display: flex!important; }
-    .middle-section { min-height: 170px;}
+    .middle-section { min-height: 170px; }
+}
+
+@media (max-width: 425px) {
+    .middle-section { min-height: 230px; }
 }
