@@ -53,7 +53,7 @@ export default {
         projects: [
             {
                 title: "Chatty App",
-                description: "A little socket.io app. Enter a your room of your choice and start chatting  with fellow Chatty App users with the user of websockets.",
+                description: "A little socket.io app. Enter a your room of your choice and start chatting with fellow Chatty App users making the most of websockets.",
                 img: "./images/chatty_app.png",
                 url: "https://chatty-app.mattheweeles.co.uk/",
             },
